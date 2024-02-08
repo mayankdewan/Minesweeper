@@ -1,0 +1,14 @@
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.AssemblyInfoInputs.cache
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.AssemblyInfo.cs
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.csproj.CoreCompileInputs.cache
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\bin\Debug\net6.0\MinesweeperProblem.exe
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\bin\Debug\net6.0\MinesweeperProblem.deps.json
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\bin\Debug\net6.0\MinesweeperProblem.runtimeconfig.json
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\bin\Debug\net6.0\MinesweeperProblem.dll
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\bin\Debug\net6.0\MinesweeperProblem.pdb
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.dll
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\refint\MinesweeperProblem.dll
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.pdb
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\MinesweeperProblem.genruntimeconfig.cache
+C:\Users\49806\OneDrive - Bain\Desktop\Problem\MinesweeperProblem\MinesweeperProblem\obj\Debug\net6.0\ref\MinesweeperProblem.dll
