@@ -188,54 +188,6 @@ namespace MinesweeperProblem.UnitTest
             // Assert
             Assert.False(false, capturedOutput.ToString());
         }
-        //[Fact]
-        //public void RevealCell_Should_Return_True_If_Hit_Mine()
-        //{
-        //    // Arrange
-        //    var mineSweeperService = new MineSweeperService();
-
-        //    // Set up a mine at position (0, 0)
-        //    mineSweeperService.SetMinefield(new char[,] { { 'X', '_' }, { '_', '_' } });
-
-        //    // Act
-        //    bool hitMine = mineSweeperService.RevealCell(0, 0);
-
-        //    // Assert
-        //    Assert.True(hitMine);
-        //}
-
-        //[Fact]
-        //public void RevealCell_Should_Return_False_If_Not_Hit_Mine()
-        //{
-        //    // Arrange
-        //    var mineSweeperService = new MineSweeperService();
-
-        //    // Set up a mine at position (0, 1)
-        //    mineSweeperService.SetMinefield(new char[,] { { '_', 'X' }, { '_', '_' } });
-
-        //    // Act
-        //    bool hitMine = mineSweeperService.RevealCell(0, 0);
-
-        //    // Assert
-        //    Assert.False(hitMine);
-        //}
-
-        //[Fact]
-        //public void CheckForWin_Should_Return_True_If_All_Non_Mine_Cells_Revealed()
-        //{
-        //    // Arrange
-        //    var mineSweeperService = new MineSweeperService();
-
-        //    // Set up a minefield with one mine and reveal all other cells
-        //    mineSweeperService.SetMinefield(new char[,] { { 'X', '1' }, { '2', 'F' } });
-        //    mineSweeperService.RevealCell(1, 0);
-
-        //    // Act
-        //    bool gameWon = mineSweeperService.CheckForWin();
-
-        //    // Assert
-        //    Assert.True(gameWon);
-        //}
 
         private MinesweeperModel GetMinesweeperModel(int minesweeperSize = 5)
         {

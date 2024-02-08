@@ -46,7 +46,7 @@ namespace MinesweeperProblem.Services
         /// <summary>
         /// Main entry function to play the game
         /// </summary>
-        public void PlayGame()
+        private void PlayGame()
         {
             Console.WriteLine("Here is your minefield:");
             while (true)
@@ -68,7 +68,7 @@ namespace MinesweeperProblem.Services
         /// <summary>
         /// This function displays the current state of the game
         /// </summary>
-        public void DisplayCurrentGameState()
+        private void DisplayCurrentGameState()
         {
             GridDisplayHelper.DisplayGrid(minesweeper.visibleField);
             Console.WriteLine();
@@ -79,7 +79,7 @@ namespace MinesweeperProblem.Services
         /// </summary>
         /// <param name="move"></param>
         /// <returns></returns>
-        public bool IsValidMove(string move)
+        private bool IsValidMove(string move)
         {
             Regex regex = new Regex(@"^[a-zA-Z]+[0-9]+$");
             return !string.IsNullOrWhiteSpace(move) && move.Length >= 2 && move.Length <= 4 && regex.Match(move.ToUpper()).Success;
@@ -89,7 +89,7 @@ namespace MinesweeperProblem.Services
         /// Function to process the player's move
         /// </summary>
         /// <param name="move"></param>
-        public void ProcessPlayerMove(string move)
+        private void ProcessPlayerMove(string move)
         {
             // Use regular expression to separate alpha and numeric parts
             Match match = Regex.Match(move, @"([a-zA-Z]+)(\d+)");
@@ -145,7 +145,7 @@ namespace MinesweeperProblem.Services
         /// </summary>
         /// <param name="row"></param>
         /// <param name="col"></param>
-        public void FlagCell(int row, int col)
+        private void FlagCell(int row, int col)
         {
             if (minesweeper.visibleField[row, col] == '_')
             {
@@ -163,7 +163,7 @@ namespace MinesweeperProblem.Services
         /// <param name="row"></param>
         /// <param name="col"></param>
         /// <returns></returns>
-        public bool RevealCell(int row, int col)
+        private bool RevealCell(int row, int col)
         {
             if (minesweeper.minefield[row, col] == 'X')
             {
@@ -192,7 +192,7 @@ namespace MinesweeperProblem.Services
         /// </summary>
         /// <param name="row"></param>
         /// <param name="col"></param>
-        public void RevealAndCountAdjacentMines(int row, int col)
+        private void RevealAndCountAdjacentMines(int row, int col)
         {
             int adjacentMines = CountAdjacentMines(row, col);
             minesweeper.visibleField[row, col] = adjacentMines.ToString()[0];
@@ -208,7 +208,7 @@ namespace MinesweeperProblem.Services
         /// </summary>
         /// <param name="row"></param>
         /// <param name="col"></param>
-        public void RevealNeighboringCells(int row, int col)
+        private void RevealNeighboringCells(int row, int col)
         {
             for (int i = row - 1; i <= row + 1; i++)
             {
