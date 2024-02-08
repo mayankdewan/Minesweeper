@@ -89,7 +89,7 @@ namespace MinesweeperProblem.Services
         /// Function to process the player's move
         /// </summary>
         /// <param name="move"></param>
-        private void ProcessPlayerMove(string move)
+        public void ProcessPlayerMove(string move)
         {
             // Use regular expression to separate alpha and numeric parts
             Match match = Regex.Match(move, @"([a-zA-Z]+)(\d+)");
@@ -147,7 +147,7 @@ namespace MinesweeperProblem.Services
         /// <param name="col"></param>
         private void FlagCell(int row, int col)
         {
-            if (minesweeper.visibleField[row, col] == '_')
+            if (minesweeper.visibleField[row, col] == '_' || minesweeper.visibleField[row, col] == '\0')
             {
                 minesweeper.visibleField[row, col] = 'F';
             }

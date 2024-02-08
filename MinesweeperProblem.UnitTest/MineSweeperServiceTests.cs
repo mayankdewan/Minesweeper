@@ -3,6 +3,7 @@ using MinesweeperProblem.Services;
 using MinesweeperProblem.UnitTest.Utilities;
 using MinesweeperProblem.Utilities;
 using NuGet.Frameworks;
+using System.IO;
 
 namespace MinesweeperProblem.UnitTest
 {
@@ -187,6 +188,73 @@ namespace MinesweeperProblem.UnitTest
 
             // Assert
             Assert.False(false, capturedOutput.ToString());
+        }
+
+        [Fact]
+        public void ProcessUserMove_Return_Cell_Revealed()
+        {
+            // Arrange
+            var minesweeper = GetMinesweeperModel();
+            var minesweeperService = new MineSweeperService(minesweeper);
+            string expectedOutput = "Cell already revealed.\r\n";
+            // Act
+            string capturedOutput;
+            using (var stringWriter = new StringWriter())
+            {
+                Console.SetOut(stringWriter);
+                minesweeperService.ProcessPlayerMove("A1");
+                capturedOutput = stringWriter.ToString();
+            }
+
+            // Assert
+            Assert.Equal(expectedOutput, capturedOutput.ToString());
+        }
+
+        [Fact]
+        public void ProcessUserMove_Return_Invalid_Move()
+        {
+            // Arrange
+            var minesweeper = GetMinesweeperModel();
+            var minesweeperService = new MineSweeperService(minesweeper);
+            string expectedOutput = "Invalid input. Please enter a valid move.\r\n";
+            // Act
+            string capturedOutput;
+            using (var stringWriter = new StringWriter())
+            {
+                Console.SetOut(stringWriter);
+                minesweeperService.ProcessPlayerMove("BA1");
+                capturedOutput = stringWriter.ToString();
+            }
+
+            // Assert
+            Assert.Equal(expectedOutput, capturedOutput.ToString());
+        }
+
+        [Fact]
+        public void ProcessUserMove_Return_And_Display_FlaggedCell()
+        {
+            // Arrange
+            var minesweeper = GetMinesweeperModel();
+            var minesweeperService = new MineSweeperService(minesweeper);
+            string expectedOutput =
+            "   A B C D E\r\n" +
+            "1  F \0 \0 \0 \0 \r\n" +
+            "2  \0 \0 \0 \0 \0 \r\n" +
+            "3  \0 \0 \0 \0 \0 \r\n" +
+            "4  \0 \0 \0 \0 \0 \r\n" +
+            "5  \0 \0 \0 \0 \0 \r\n";
+            // Act
+            string capturedOutput;
+            using (var stringWriter = new StringWriter())
+            {
+                Console.SetOut(stringWriter);
+                minesweeperService.ProcessPlayerMove("FA1");
+                GridDisplayHelper.DisplayGrid(minesweeper.visibleField);
+                capturedOutput = stringWriter.ToString();
+            }
+
+            // Assert
+            Assert.Equal(expectedOutput, capturedOutput.ToString());
         }
 
         private MinesweeperModel GetMinesweeperModel(int minesweeperSize = 5)
