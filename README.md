@@ -3,7 +3,7 @@ This Repo contains the implementation of classic Minesweeper game utilizing the 
 
 ## Grid Format
 The grid is represented as follows: <br />
-   A B C D <br />
+ &nbsp;  A B C D <br />
 1  _ _ _ _ <br />
 2  _ _ _ _ <br />
 3  _ _ _ _ <br />
