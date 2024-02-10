@@ -2,7 +2,7 @@
 This Repo contains the implementation of classic Minesweeper game utilizing the Depth-First Search (DFS) algorithm. The game is played on a grid of cells, some containing mines. The objective is to reveal all cells without hitting a mine. Users can input commands in the format {character}{numeric}, such as A1 or FA1 to flag a specific cell.
 
 ## Grid Format
-The grid is represented as follows:
+The grid is represented as follows: <br />
    A B C D <br />
 1  _ _ _ _ <br />
 2  _ _ _ _ <br />
