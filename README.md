@@ -1,28 +1,32 @@
-# Minesweeper
+# Overview
+This Repo contains the implementation of classic Minesweeper game utilizing the Depth-First Search (DFS) algorithm. The game is played on a grid of cells, some containing mines. The objective is to reveal all cells without hitting a mine. Users can input commands in the format {character}{numeric}, such as A1 or FA1 to flag a specific cell.
 
-This is a simple implementation of the classic game Minesweeper.
+## Grid Format
+The grid is represented as follows:
+   A B C D
+1  _ _ _ _
+2  _ _ _ _
+3  _ _ _ _
+4  _ _ _ _
 
-## Description
+(This is an example for a 4x4 grid)
 
-The game is played on a grid of squares. Some squares contain mines; others don't. If you click on a square containing a mine, you lose. If you manage to click all the squares (without clicking on any mines) or flag all the mines, you win.
+# Getting Started
 
-## Getting Started
+## Dependies
 
-### Dependencies
+Ensure you have .Net Core 6.0 Package and Visual Studio installed. You can download the .Net Core package (https://dotnet.microsoft.com/en-us/download/dotnet/6.0).
 
-* Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-* ex. Windows 10
+### Installation
 
-### Installing
+* Clone the project to your local system.
+* Open the solution file in Visual Studio.
+* Build the project.
 
-* How/where to download your program
-* Any modifications needed to be made to files/folders
+## Execution
+This is a console application. Once the code is built, press F5 or start the application in Visual Studio to launch the Minesweeper game.
 
-### Executing program
-
-* How to run the program
-* Step-by-step bullets
-
-## Help
-
-Any advise for common problems or issues.
+## Gameplay
+* Enter your moves in the format {character}{numeric} (e.g., A1 or FA1 for flagging).
+* Selecting a cell with a mine results in a loss.
+* Successfully revealing all cells without hitting a mine leads to victory.
