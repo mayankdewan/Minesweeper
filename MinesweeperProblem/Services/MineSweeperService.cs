@@ -133,6 +133,10 @@ namespace MinesweeperProblem.Services
                     GridDisplayHelper.DisplayGrid(minesweeper.visibleField);
                     Environment.Exit(0);
                 }
+                else
+                {
+                    Console.WriteLine("This square contains {0} adjacent mines.", CountAdjacentMines(row, col));
+                }
             }
             else
             {
@@ -170,12 +174,6 @@ namespace MinesweeperProblem.Services
                 return true; // Game over, hit a mine
             }
 
-            if (minesweeper.visibleField[row, col] != '_' && minesweeper.visibleField[row, col] != 'F')
-            {
-                Console.WriteLine("Cell already revealed.");
-                return false; // Cell already revealed
-            }
-
             if (minesweeper.visibleField[row, col] == 'F')
             {
                 Console.WriteLine("Cannot reveal a flagged cell. Unflag it first.");
@@ -194,9 +192,13 @@ namespace MinesweeperProblem.Services
         /// <param name="col"></param>
         private void RevealAndCountAdjacentMines(int row, int col)
         {
+            if (minesweeper.visibleField[row, col] != '_' && minesweeper.visibleField[row, col] != 'F')
+            {
+                Console.WriteLine("Cell already revealed.");
+                return; // Cell already revealed
+            }
             int adjacentMines = CountAdjacentMines(row, col);
             minesweeper.visibleField[row, col] = adjacentMines.ToString()[0];
-
             if (adjacentMines == 0)
             {
                 RevealNeighboringCells(row, col);
