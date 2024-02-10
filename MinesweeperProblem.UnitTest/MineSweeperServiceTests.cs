@@ -196,7 +196,7 @@ namespace MinesweeperProblem.UnitTest
             // Arrange
             var minesweeper = GetMinesweeperModel();
             var minesweeperService = new MineSweeperService(minesweeper);
-            string expectedOutput = "Cell already revealed.\r\n";
+            string expectedOutput = "Cell already revealed.\r\nThis square contains 0 adjacent mines.\r\n";
             // Act
             string capturedOutput;
             using (var stringWriter = new StringWriter())
@@ -216,7 +216,7 @@ namespace MinesweeperProblem.UnitTest
             // Arrange
             var minesweeper = GetMinesweeperModel();
             var minesweeperService = new MineSweeperService(minesweeper);
-            string expectedOutput = "Invalid input. Please enter a valid move.\r\n";
+            string expectedOutput = "Incorrect Input.\r\n";
             // Act
             string capturedOutput;
             using (var stringWriter = new StringWriter())
@@ -237,6 +237,7 @@ namespace MinesweeperProblem.UnitTest
             var minesweeper = GetMinesweeperModel();
             var minesweeperService = new MineSweeperService(minesweeper);
             string expectedOutput =
+            "This square contains 0 adjacent mines.\r\n" +
             "   A B C D E\r\n" +
             "1  F \0 \0 \0 \0 \r\n" +
             "2  \0 \0 \0 \0 \0 \r\n" +

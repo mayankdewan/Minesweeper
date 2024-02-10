@@ -13,16 +13,21 @@ namespace MinesweeperProblem.Utilities
                 Console.Write("Enter the size of the grid (e.g. 4 for a 4x4 grid): ");
                 if (int.TryParse(Console.ReadLine(), out gridSize) && gridSize > 0)
                 {
-                    if(gridSize > 26)
+                    if(gridSize > 10)
                     {
-                        Console.WriteLine("The maximum grid size is 26x26. Please enter a smaller size.");
+                        Console.WriteLine("Maximum size of grid is 10.");
+                        continue;
+                    }
+                    if(gridSize < 3)
+                    {
+                        Console.WriteLine("Minimum size of grid is 2.");
                         continue;
                     }
                     break;
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a positive integer for the size of the grid.");
+                    Console.WriteLine("Incorrect Input.");
                 }
             }
             return gridSize;
@@ -34,13 +39,25 @@ namespace MinesweeperProblem.Utilities
             while (true)
             {
                 Console.Write("Enter the number of mines to place on the grid (maximum is 35% of the total squares): ");
-                if (int.TryParse(Console.ReadLine(), out numberOfMines) && numberOfMines > 0 && numberOfMines <= (int)(0.35 * gridSize * gridSize))
+                if (int.TryParse(Console.ReadLine(), out numberOfMines))
                 {
-                    break;
+                    if(numberOfMines == 0)
+                    {
+                        Console.WriteLine("There must be at least 1 mine.");
+                    }
+                    else if (numberOfMines > 0 && numberOfMines <= (int)(0.35 * gridSize * gridSize))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Maximum number is 35% of total sqaures.");
+                    }
+
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a positive integer for the number of mines (not exceeding 35% of the total squares).");
+                    Console.WriteLine("Incorect input.");
                 }
             }
             return numberOfMines;

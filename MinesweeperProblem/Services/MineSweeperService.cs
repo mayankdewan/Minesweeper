@@ -60,7 +60,7 @@ namespace MinesweeperProblem.Services
                 }
                 else
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid move.");
+                    Console.WriteLine("Incorrect Input.");
                 }
             }
         }
@@ -100,7 +100,7 @@ namespace MinesweeperProblem.Services
                 var rowData = rowPart.ToUpper().ToCharArray();
                 if (rowData.Length > 1 && rowData[0] != 'F')
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid move.");
+                    Console.WriteLine("Incorrect Input.");
                     return;
                 }
                 char action = rowData[0] == 'F' && rowData.Length > 1 ? rowData[0] : 'A';
@@ -109,7 +109,7 @@ namespace MinesweeperProblem.Services
 
                 if (row < 0 || row >= minesweeper.gridSize || col < 0 || col >= minesweeper.gridSize)
                 {
-                    Console.WriteLine("Invalid input. Please enter a valid move.");
+                    Console.WriteLine("Incorrect Input.");
                     return;
                 }
 
@@ -121,17 +121,25 @@ namespace MinesweeperProblem.Services
                 {
                     if (RevealCell(row, col))
                     {
-                        Console.WriteLine("Game over! You hit a mine.");
                         GridDisplayHelper.DisplayGrid(minesweeper.minefield);
-                        Environment.Exit(0);
+                        Console.WriteLine("Oh no, you detonated a mine! Game over.");
+                        Console.WriteLine("Press any key to play again...");
+                        Console.ReadKey();
+                        MineSweeperService mineSweeper = new MineSweeperService(); // Start a new game
+                        mineSweeper.PlayMineSweeper();
+                        return;
                     }
                 }
 
                 if (CheckForWin())
                 {
-                    Console.WriteLine("Congratulations! You cleared the minefield!");
                     GridDisplayHelper.DisplayGrid(minesweeper.visibleField);
-                    Environment.Exit(0);
+                    Console.WriteLine("Congratulations! You cleared the minefield!");
+                    Console.WriteLine("Press any key to play again...");
+                    Console.ReadKey();
+                    MineSweeperService mineSweeper = new MineSweeperService(); // Start a new game
+                    mineSweeper.PlayMineSweeper();
+                    return;
                 }
                 else
                 {
@@ -140,7 +148,7 @@ namespace MinesweeperProblem.Services
             }
             else
             {
-                Console.WriteLine("Invalid input. Please enter a valid move.");
+                Console.WriteLine("Incorrect Input.");
             }
         }
 
