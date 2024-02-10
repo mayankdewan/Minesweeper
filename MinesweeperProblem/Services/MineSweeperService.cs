@@ -17,7 +17,8 @@ namespace MinesweeperProblem.Services
                 numberOfMines = numberOfMines,
                 gridSize = gridSize,
                 minefield = new char[gridSize, gridSize],
-                visibleField = new char[gridSize, gridSize]
+                visibleField = new char[gridSize, gridSize],
+                showMessage = true
             };
         }
 
@@ -51,6 +52,7 @@ namespace MinesweeperProblem.Services
             Console.WriteLine("Here is your minefield:");
             while (true)
             {
+                minesweeper.showMessage = true;
                 DisplayCurrentGameState();
                 string? move = InteractionHelper.GetPlayerMove();
 
@@ -141,7 +143,7 @@ namespace MinesweeperProblem.Services
                     mineSweeper.PlayMineSweeper();
                     return;
                 }
-                else
+                else if (minesweeper.showMessage)
                 {
                     Console.WriteLine("This square contains {0} adjacent mines.", CountAdjacentMines(row, col));
                 }
@@ -167,6 +169,7 @@ namespace MinesweeperProblem.Services
             {
                 minesweeper.visibleField[row, col] = '_';
             }
+            minesweeper.showMessage = false;
         }
 
         /// <summary>
@@ -185,11 +188,12 @@ namespace MinesweeperProblem.Services
             if (minesweeper.visibleField[row, col] == 'F')
             {
                 Console.WriteLine("Cannot reveal a flagged cell. Unflag it first.");
+                minesweeper.showMessage = false;
                 return false; // Cell already revealed
             }
 
             RevealAndCountAdjacentMines(row, col);
-            
+
             return false; // Not hit a mine
         }
 
@@ -203,6 +207,7 @@ namespace MinesweeperProblem.Services
             if (minesweeper.visibleField[row, col] != '_' && minesweeper.visibleField[row, col] != 'F')
             {
                 Console.WriteLine("Cell already revealed.");
+                minesweeper.showMessage = false;
                 return; // Cell already revealed
             }
             int adjacentMines = CountAdjacentMines(row, col);
@@ -278,7 +283,7 @@ namespace MinesweeperProblem.Services
             {
                 for (int j = 0; j < minesweeper.gridSize; j++)
                 {
-                    if (minesweeper.minefield[i, j] != 'X' && minesweeper.visibleField[i, j] == '_' || minesweeper.visibleField[i,j] == '\0')
+                    if (minesweeper.minefield[i, j] != 'X' && minesweeper.visibleField[i, j] == '_' || minesweeper.visibleField[i, j] == '\0')
                     {
                         return false;
                     }
